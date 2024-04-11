@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLOS Cyril - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</head>
+<body>
+
+    <video autoplay muted loop id="video-background">
+        <source src="/Video/Video_de_fond.mp4" type="video/mp4">
+        Votre navigateur ne prend pas en charge la lecture de vidéos.
+    </video>
+
+
+<div>
+    <nav>
+        <a href="#home">Accueil</a> 
+        <a href="#about">À propos</a>
+        <a href="#skills">Compétences</a>
+        <a href="#projects">Projets</a>
+    </nav>
+
+    <section id="home">
+        <h1>Bienvenue</h1>
+        <div id="textContainer">Je suis <span id="dynamicText"></span></div>
+    </section>
+
+    <script>
+        const dynamicText = document.getElementById('dynamicText');
+        const phrases = ["Cyril", "étudiant en informatique"];
+        let currentPhraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function animateText() {
+            const currentPhrase = phrases[currentPhraseIndex];
+            const currentText = currentPhrase.slice(0, charIndex);
+
+            dynamicText.textContent = currentText;
+
+            if (isDeleting) {
+                charIndex--;
+
+                if (charIndex < 0) {
+                    isDeleting = false;
+                    currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+                    charIndex = 0;
+                }
+            } else {
+                charIndex++;
+
+                if (charIndex > currentPhrase.length) {
+                    isDeleting = true;
+                    setTimeout(() => {
+                        animateText();
+                    }, 1500);
+                }
+            }
+        }
+
+        setInterval(() => {
+            animateText();
+        }, 100);
+    </script>
+
+<section id="about" class="about">
+    <div class="content">
+        <div class="image-container">
+            <img src="/Image/photo_de_moi.jpg" alt="Ma Photo">
+        </div>
+        <div class="text">
+            <span class="titre">A propos de moi : </span></br></br> Actuellement en BTS Services Informatique aux Organisations au sein de Mestris-BTS dans le Campus Sciences-u, j'ai choisis l'option Solutions Logicielles et Applications Métiers car je souhaite devenir développeur full-stack. Étant intéresser par l'informatique, j'ai rejoint ce BTS en Septembre 2021 et me suis pris de passion pour le développement web.</br></br> Après le BTS, j'envisage de continuer mes études en intégrant un Bachelor puis un Mastère en Ingénierie du Web à l'ESGI, dans le cadre de mon projet d'avenir en tant que développeur web et mobile aussi bien en front-end qu'en back-end.</br></br>Veuillez consulter mon CV pour en savoir plus.
+        </div>
+    </div>
+    <div class="boutons">
+        <a href="/Page pdf/cv.pdf">Mon CV</a>
+        <a href="/Page pdf/veille_technologique.pdf">Veille technologique</a>
+        <a href="/Page pdf/tableau_de_synthese.pdf">Mon tableau de synthèse</a>
+    </div>
+</section>
+ 
+    <section id="skills" class="about">
+        <div class="content">
+            <div class="text">
+                <span class="titre">Mes compétences</span>
+                <div class="skills-container">
+                    <div class="soft-skills">
+                        <span class="sub-title">Soft Skills</span></br>
+                        <ul>
+                            <li>Autonomie</li>
+                            <li>Autodidacte</li>
+                            <li>Travail en équipe</li>
+                            <li>Gestion du temps</li>
+                            <li>Ponctuel</li>
+                            <li>Attentif</li>
+                        </ul>
+                    </div>
+                    <div class="hard-skills">
+                        <span class="sub-title">Hard Skills</span></br>
+                        <ul>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>PHP</li>
+                            <li>SQL</li>
+                            <li>XML</li>
+                            <li>Java</li>
+                            <li>Wordpress</li>
+                            <li>InControl</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="slider">
+        <div class="slider-container">
+            <div class="slider-content">
+                <div class="slider-item">
+                    <div class="project-content">
+                        <h3 class="project-title">Stage de première année</h3>
+                        <a href="/Page pdf/stage1.pdf">
+                        <button class="project-button">En savoir plus</button>
+                        </a>
+                        <button class="prev"><img src="/Image/gauche.png" alt="Précédent"></button>
+                        <button class="next"><img src="/Image/droite.png" alt="Suivant"></button> 
+                    </div>
+                </div>
+                <div class="slider-item">
+                    <div class="project-content">
+                        <h3 class="project-title">Stage de seconde année</h3>
+                        <a href="/Page pdf/stage2.pdf">
+                        <button class="project-button">En savoir plus</button>
+                        </a>
+                        <button class="prev"><img src="/Image/gauche.png" alt="Précédent"></button>
+                        <button class="next"><img src="/Image/droite.png" alt="Suivant"></button> 
+                    </div>
+                </div>
+
+                <div class="slider-item">
+                    <div class="project-content">
+                        <h3 class="project-title">GSB web</h3>
+                        <a href="/Page pdf/gsb_web.pdf">
+                        <button class="project-button">En savoir plus</button>
+                        </a>
+                        <button class="prev"><img src="/Image/gauche.png" alt="Précédent"></button>
+                        <button class="next"><img src="/Image/droite.png" alt="Suivant"></button> 
+                    </div>
+                </div>
+
+                <div class="slider-item">
+                    <div class="project-content">
+                        <h3 class="project-title">GSB mobile (non achevé)</h3>
+                        <a href="">
+                        <button class="project-button">En savoir plus</button>
+                        </a>
+                        <button class="prev"><img src="/Image/gauche.png" alt="Précédent"></button>
+                        <button class="next"><img src="/Image/droite.png" alt="Suivant"></button> 
+                    </div>
+                </div>
+            </div>
+        </div>   
+    </section>
+
+    <script>
+const slides = document.querySelectorAll('.slider-item');
+const prevBtns = document.querySelectorAll('.prev');
+const nextBtns = document.querySelectorAll('.next');
+
+let currentSlide = 0;
+let autoSlideInterval;
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        if (i === index) {
+            slide.style.display = 'block';
+        } else {
+            slide.style.display = 'none';
+        }
+    });
+}
+
+function nextSlide() {
+    currentSlide++;
+    if (currentSlide >= slides.length) {
+        currentSlide = 0;
+    }
+    showSlide(currentSlide);
+}
+
+function prevSlide() {
+    currentSlide--;
+    if (currentSlide < 0) {
+        currentSlide = slides.length - 1;
+    }
+    showSlide(currentSlide);
+}
+
+prevBtns.forEach(btn => {
+    btn.addEventListener('click', prevSlide);
+});
+
+nextBtns.forEach(btn => {
+    btn.addEventListener('click', nextSlide);
+});
+
+function startAutoSlide() {
+    autoSlideInterval = setInterval(nextSlide, 5000);
+}
+
+function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+}
+
+showSlide(currentSlide);
+
+startAutoSlide();
+    </script>
+
+</body>
+<footer>
+    <div class="footer-left">
+        © 2024 C. CLOS
+</footer>
+</html>
